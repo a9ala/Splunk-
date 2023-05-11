@@ -1,0 +1,10 @@
+######## Alert for detecting Adding access to Windows AD Group #######
+
+index=win* (EventCode=4732 OR EventCode=4728 OR EventCode=4756) Group_Name="#Group Name#" OR Group_Name="#Group Name#" Caller_User_Name=* MemberSid=*
+
+
+
+
+##### Action triger ##### Email can be defined to display - Who add the access -Which acess was added -to which group 
+
+$result.MemberSid$ Member was added by $result.SubjectUserName$ to $result.TargetUserName$ group.
