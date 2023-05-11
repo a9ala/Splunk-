@@ -1,0 +1,9 @@
+######### Alert for detecting action Adding access to Azure AD Group. ##########
+index=azure ( "targetResources{}.modifiedProperties{}.newValue"="\"#Name of the desired group#\"" 
+OR "targetResources{}.modifiedProperties{}.newValue"="\"#Name of the desired group#\"") activityDisplayName="Add member to role"  | chart count by "targetResources{}.modifiedProperties{}.newValue" "targetResources{}.userPrincipalName"
+
+
+################################
+# #Name of the desired group# This needs to change group eg: Company Administrator,SharePoint Service Administrator.
+# "Add member to role" to detect adding action.
+# This will display results in chart.
