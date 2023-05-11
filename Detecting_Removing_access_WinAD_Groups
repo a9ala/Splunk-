@@ -1,0 +1,8 @@
+######## Alert for detecting Removing access to Windows AD Group #######
+index=win* (EventCode=4755 OR EventCode=4733 OR EventCode=4737) Group_Name="#Group Name#" OR Group_Name="#Group Name#" Caller_User_Name=* MemberSid=*
+
+
+
+##### Action triger ##### Email can be defined to display - Who remove the access -Which acess was removed -From which group 
+
+$result.MemberSid$ Member was removed by $result.SubjectUserName$ to $result.TargetUserName$ group.
